@@ -25,4 +25,7 @@ fn main(){
   #[allow(dead_code)]
   struct Structure(i32);
   //println!("This struct is `{}` won't print...", Structure(3)); /* error: main::Structure doens't implement std::fmt::Display */
+
+  let pi = 3.141592;
+  println!("Pi is roughly {:.*}", 2, pi);
 }
