@@ -26,6 +26,6 @@ fn main() {
   let name = "Peter";
   let age = 27;
   let peter = Person { name, age };
-  println!("{:?}", peter);
-  println!("{:#?}", peter);
+  println!("{:?}", peter);// print struct in 1 line.
+  println!("{:#?}", peter);// print struct as its definition, this time in 4 lines.
 }
