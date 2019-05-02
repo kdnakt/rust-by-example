@@ -8,3 +8,11 @@
 # Unignore all with extensions
 !*/*.rs
 
+!*/*/
+*/*/*
+!*/*/*.toml
+!*/*/*.lock
+
+!*/*/*/
+*/*/*/*
+!*/*/*/*.rs
