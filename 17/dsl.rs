@@ -1,22 +1,28 @@
 macro_rules! calculate {
-    (hoge $e:expr) => {{
+    (foo $e:expr) => {{
         {
             let val : usize = $e;
             println!("{} = {}", stringify!{$e}, val);
+        }
+    }};
+    (foobar $e:expr) => {{
+        {
+            let val : usize = $e;
+            println!("{} != {}", stringify!{$e}, val * val);
         }
     }};
 }
 
 fn main() {
     calculate! {
-        hoge 1 * 2
+        foo 1 * 2
     }
 
     calculate! {
-        hoge (1 + 2) * (3 / 4)
+        foo (1 + 2) * (3 / 4)
     }
 
     calculate! {
-        hoge 3 + 3 + 3 - 5
+        foobar 3 + 3 + 3 - 5
     }
 }
