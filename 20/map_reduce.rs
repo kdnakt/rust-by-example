@@ -17,6 +17,8 @@ fn main() {
 
     for (i, data_segment) in chunked_data.enumerate() {
         println!("data segment {} is \"{}\"", i, data_segment);
+        // without move, error: closure may outlive the current function, but it borrows i,
+        // which is owned by the current function
         children.push(thread::spawn(move || -> u32 {
             let result = data_segment
                     .chars()
