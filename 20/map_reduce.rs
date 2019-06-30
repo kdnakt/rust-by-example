@@ -37,7 +37,9 @@ fn main() {
         intermediate_sums.push(intermediate_sum);
     }
 
-    let final_result = intermediate_sums.iter().sum::<u32>();
+    //let final_result = intermediate_sums.iter().sum::<u32>();
+    // without turbofish ::<>, explicitly specifying the type
+    let final_result: u32 = intermediate_sums.iter().sum();
 
     println!("Final sum result: {}", final_result);
 }
