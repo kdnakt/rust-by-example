@@ -1,6 +1,6 @@
 use std::thread;
 
-static NTHREADS: i32 = 10;
+static NTHREADS: f32 = 10.0;
 
 fn main() {
     let data = "8696789773741647185329 7327050364959
@@ -18,6 +18,19 @@ fn main() {
 
     // Map phase
     let chunked_data = data.split_whitespace();
+    let chunk_count = chunked_data.clone().count() as f32;
+    println!("chunked data count: {}", chunk_count);
+    let nchunks = (chunk_count / NTHREADS).ceil();
+    println!("chunk_count / NTHREADS: {}", nchunks);
+    let mut res = "".to_string();
+    for (_, seg) in chunked_data.clone().enumerate() {
+        res.push_str(seg);
+    }
+    let len = res.len() as f32;
+    println!("res length: {}", len);
+    let end = (len / NTHREADS).ceil() as usize;
+    let (first, last) = res.split_at(end);
+    println!("first,last: {},{}", first, last);
 
     for (i, data_segment) in chunked_data.enumerate() {
         println!("data segment {} is \"{}\"", i, data_segment);
